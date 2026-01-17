@@ -397,7 +397,6 @@ GameObject:
   - component: {fileID: 959078938}
   - component: {fileID: 959078942}
   - component: {fileID: 959078943}
-  - component: {fileID: 959078944}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Planet
@@ -420,12 +419,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.5836266
-  m_Center: {x: -0.018010419, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &959078939
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -491,7 +490,7 @@ Transform:
   m_GameObject: {fileID: 959078937}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.73, y: 1, z: 8}
+  m_LocalPosition: {x: 0, y: 1, z: 8}
   m_LocalScale: {x: 3.4, y: 3.289, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -522,7 +521,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 72
   m_CollisionDetection: 0
 --- !u!114 &959078943
 MonoBehaviour:
@@ -533,31 +532,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 959078937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054705dcc7c556cbdb726c273079d990, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f72b0ece6a25eb980b9cb1e6fd666e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Planet
-  gravityStrength: 20
---- !u!135 &959078944
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959078937}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.65
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetGravity
+  gravityStrength: 5
 --- !u!1 &1314006372
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +551,6 @@ GameObject:
   - component: {fileID: 1314006373}
   - component: {fileID: 1314006378}
   - component: {fileID: 1314006379}
-  - component: {fileID: 1314006380}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Satellite
@@ -606,7 +583,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 72
   m_CollisionDetection: 0
 --- !u!136 &1314006374
 CapsuleCollider:
@@ -696,7 +673,7 @@ Transform:
   m_GameObject: {fileID: 1314006372}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.22, y: 6.26, z: 8}
+  m_LocalPosition: {x: 0.2243042, y: 4.6143036, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -714,7 +691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f72b0ece6a25eb980b9cb1e6fd666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetGravity
-  planets: []
+  gravityStrength: 5
 --- !u!114 &1314006379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,20 +704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45195c2f031730fffbd634da2cc42add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrbitPlanet
-  orbitSpeed: 15
---- !u!114 &1314006380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1314006372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09fd586af8a231ce09a44bfb7ae72b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
-  thrustForce: 10
+  accelerationForce: 1
+  maxSpeed: 10
 --- !u!1 &1695049333
 GameObject:
   m_ObjectHideFlags: 0
