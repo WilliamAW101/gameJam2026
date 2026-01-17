@@ -12,6 +12,8 @@ public class CameraControl : MonoBehaviour
 
     public float minVel = 0.1f;
 
+    public float maxVel = 1000f;
+
     private Vector2 rotateVel;
 
 
@@ -19,16 +21,18 @@ public class CameraControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             rotateVel = Vector2.zero;
-
+            
         }
 
         if (Input.GetKey(KeyCode.Mouse1))
@@ -71,7 +75,7 @@ public class CameraControl : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse1) && mouseVel.sqrMagnitude > 0f)
         {
-            rotateVel = mouseVel;
+            rotateVel = Vector2.ClampMagnitude(mouseVel,maxVel);
         }
 
         
