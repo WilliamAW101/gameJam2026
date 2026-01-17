@@ -4,10 +4,11 @@ public class OrbitPlanet : MonoBehaviour
 {
     [SerializeField] float orbitSpeed = 80f;
     Rigidbody satelliteVel;
-    private Vector3 lastVelocity;
-    private bool isAtPlanet = false, leavingPlanetFlag = false;
+    // private Vector3 lastVelocity;
+    private bool isAtPlanet = false, joiningPlanetFlag = false;
     private GameObject planet;
     private Transform planetTransform;
+    private Collider planetCollider;
     private float timer;
     void Start()
     {
@@ -19,16 +20,18 @@ public class OrbitPlanet : MonoBehaviour
         if (isAtPlanet)
         {
             transform.RotateAround(planetTransform.position, Vector3.forward, orbitSpeed * Time.deltaTime);
-            lastVelocity = satelliteVel.linearVelocity;
+            // lastVelocity = satelliteVel.linearVelocity;
         }
 
-        if (leavingPlanetFlag)
+        if (joiningPlanetFlag)
         {
             timer += Time.deltaTime;
             if (timer > 2.0f)
             {
-                leavingPlanet();
-                leavingPlanetFlag = false;
+                joiningPlanet(planetCollider);
+                satelliteVel.linearVelocity = Vector3.zero;
+                joiningPlanetFlag = false;
+                isAtPlanet = true;
                 timer = 0f; // reset timer
             }
         }
@@ -40,10 +43,8 @@ public class OrbitPlanet : MonoBehaviour
         if (other.gameObject.CompareTag("Planet"))
         {
             Debug.Log("Satellite is near planet");
-            planet = other.gameObject;
-            planetTransform = planet.transform;
-            isAtPlanet = true;
-            timer = 0f;
+            planetCollider = other;
+            joiningPlanetFlag = true;
         }
     }
 
@@ -52,7 +53,7 @@ public class OrbitPlanet : MonoBehaviour
         if (other.gameObject.CompareTag("Planet"))
         {
             Debug.Log("Satellite is leaving planet");
-            leavingPlanetFlag = true;
+            leavingPlanet();
         }
     }
 
@@ -61,6 +62,15 @@ public class OrbitPlanet : MonoBehaviour
         isAtPlanet = false;
         planet = null;
         planetTransform = null;
-        satelliteVel.linearVelocity = lastVelocity;
+        // satelliteVel.linearVelocity = lastVelocity;
+        joiningPlanetFlag = false;
+    }
+
+    private void joiningPlanet(Collider other)
+    {
+        planet = other.gameObject;
+        planetTransform = planet.transform;
+        isAtPlanet = true;
+        timer = 0f;
     }
 }
