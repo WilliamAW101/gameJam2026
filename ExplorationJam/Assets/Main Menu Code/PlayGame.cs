@@ -16,7 +16,7 @@ public class PlayGame : MonoBehaviour
   
     public void PlayLevel()
     {
-        SceneManager.LoadScene("Planet Screen");
+        SceneManager.LoadScene("Camera Screen");
     }
 
     public void Esc()
