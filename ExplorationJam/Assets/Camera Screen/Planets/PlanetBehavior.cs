@@ -10,6 +10,8 @@ public class PlanetBehavior : MonoBehaviour
     public Vector3 scale;
     public int FoCount;
 
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()

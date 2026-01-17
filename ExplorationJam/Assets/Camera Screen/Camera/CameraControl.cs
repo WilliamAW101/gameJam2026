@@ -40,6 +40,9 @@ public class CameraControl : MonoBehaviour
 
     public float CamTimer;
 
+    public GameObject BackButton;
+    public 
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,7 +80,8 @@ public class CameraControl : MonoBehaviour
 
             if (CamTimer > 0)
             {
-                CamTimer = -Time.deltaTime;
+                CamTimer =- Time.deltaTime;
+                Debug.Log(CamTimer);
 
             }
             if (CamTimer <= 0)
@@ -93,7 +97,17 @@ public class CameraControl : MonoBehaviour
             blackoutCamera.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (currentZoom == startingZoom)
+        {
+            BackButton.SetActive(true);
+        }
+        else
+        {
+            BackButton.SetActive(false);
+        }
+
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             rotateVel = Vector2.zero;
 
@@ -175,6 +189,7 @@ public class CameraControl : MonoBehaviour
         {
             if (started == true)
             {
+                BackButton.SetActive(true);
                 currentZoom = startingZoom;
                 started = false;
             }

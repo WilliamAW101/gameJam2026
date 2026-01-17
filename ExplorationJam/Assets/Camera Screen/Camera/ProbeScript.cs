@@ -48,9 +48,10 @@ public class ProbeScript : MonoBehaviour
 
         if (Physics.Raycast(findableCheck, out RaycastHit hitInfo))
         {
+            if (hitInfo.collider.CompareTag("Findable"))
+            {
 
-            
-
+            }
         }
     }
 }
