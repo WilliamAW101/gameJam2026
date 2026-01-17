@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -189,10 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1965347077}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       insertIndex: -1
@@ -521,9 +522,12 @@ MonoBehaviour:
   minVel: 0.01
   maxVel: 400
   camera: {fileID: 330585545}
+  planet: {fileID: 1445910949}
   zoomedIn: 0
   started: 0
+  foVisible: 0
   CamTransform: {fileID: 0}
+  taggedObjects: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +863,8 @@ MonoBehaviour:
   findableObject: {fileID: 1965347076}
   SphereCollider: {fileID: 0}
   radius: 0
+  scale: {x: 0, y: 0, z: 0}
+  FoCount: 3
 --- !u!1 &1591533927
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36bfc00848a7a0848998d07cb39abba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProbeScript
+  probeRadius: 15
 --- !u!1 &1841542422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,11 +1114,11 @@ Transform:
   m_GameObject: {fileID: 1965347076}
   serializedVersion: 2
   m_LocalRotation: {x: -0.8312279, y: -0, z: -0, w: 0.5559319}
-  m_LocalPosition: {x: 0, y: -0.034, z: -0.055666666}
-  m_LocalScale: {x: 0.0035760002, y: 0.0035760002, z: 0.0035760002}
+  m_LocalPosition: {x: 0, y: -1.0200001, z: -1.67}
+  m_LocalScale: {x: 0.10728001, y: 0.10728005, z: 0.10728005}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 217216335}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -112.45, y: 0, z: 0}
 --- !u!65 &1965347078
 BoxCollider:
@@ -1141,7 +1148,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965347076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1201,3 +1208,4 @@ SceneRoots:
   - {fileID: 990381714}
   - {fileID: 1027236215}
   - {fileID: 912268323}
+  - {fileID: 1965347077}

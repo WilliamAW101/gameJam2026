@@ -16,27 +16,40 @@ public class CameraControl : MonoBehaviour
 
     private float zoomMin = -8f;
     private float zoomMax = -4f;
-    private float currentZoom = -5f;
+    private float currentZoom = -4f;
     private float startingZoom = -100f;
 
+    private float padding;
+
     public Camera camera;
+
+    public GameObject planet;
 
     public bool zoomedIn = false;
     public bool started = false;
 
+    public bool foVisible = false;
+
     public Transform CamTransform;
     private Vector2 rotateVel;
 
-
+    public GameObject[] taggedObjects;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        float radius = planet.GetComponent<SphereCollider>().radius;
+        float size = planet.transform.localScale.x;
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
 
+        padding = -1 * (radius * size);
 
-        currentZoom = startingZoom;
+        currentZoom = startingZoom + padding;
+        startingZoom = startingZoom + padding;
+        zoomMin = zoomMin + padding;
+        zoomMax = zoomMax + padding;
 
     }
 
@@ -80,6 +93,7 @@ public class CameraControl : MonoBehaviour
         }
 
 
+
     }
 
     private void CameraOrbit()
@@ -111,14 +125,21 @@ public class CameraControl : MonoBehaviour
                 currentZoom = zoomMin;
                 started = true;
             }
+
+            FoVisible(false);
+
+            foVisible = false;
         }
         else if (scroll > 0f)
         {
+            //Zoomed in all the way
             currentZoom = zoomMax;
             if (started == false)
             {
                 started = true;
             }
+
+            FoVisible(true);
         }
         else if (currentZoom == zoomMin && scroll < 0f)
         {
@@ -127,6 +148,8 @@ public class CameraControl : MonoBehaviour
                 currentZoom = startingZoom;
                 started = false;
             }
+
+            FoVisible(false);
         }
         else if (scroll < 0f)
         {
@@ -135,11 +158,33 @@ public class CameraControl : MonoBehaviour
             {
                 started = true;
             }
+
+            FoVisible(false);
         }
+
         
 
         Vector3 camlocalPos = camera.transform.localPosition;
         camlocalPos.z = Mathf.Lerp(camlocalPos.z, currentZoom, 10f * Time.deltaTime);
-        camera.transform.localPosition = camlocalPos;
+        camera.transform.localPosition = camlocalPos ;
+    }
+
+
+    public void FoVisible(bool trfl)
+    {
+        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Findable");
+
+        if (foVisible == !trfl)
+        {
+            Debug.Log(taggedObjects.Length);
+            foreach (GameObject obj in taggedObjects)
+            {
+                    
+                    MeshRenderer foRend = obj.GetComponent<MeshRenderer>();
+                    foRend.enabled = trfl;
+
+            }
+            foVisible = trfl;
+        }
     }
 }

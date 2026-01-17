@@ -5,6 +5,8 @@ public class ProbeScript : MonoBehaviour
 {
     Ray findableCheck;
     Ray probeAttempt;
+
+    public float probeRadius;
        
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,9 +30,15 @@ public class ProbeScript : MonoBehaviour
     {
         probeAttempt = new Ray(transform.position, transform.forward);
 
-        if(Physics.Raycast(probeAttempt, out RaycastHit hitInfo))
+        if(Physics.SphereCast(probeAttempt, probeRadius, out RaycastHit hitInfo))
         {
             Debug.Log("Probe Attempt");
+
+            if (hitInfo.collider.CompareTag("Findable"))
+            {
+                Debug.Log("Findable Hit!");
+            }
+
         }
     }
 
@@ -41,10 +49,7 @@ public class ProbeScript : MonoBehaviour
         if (Physics.Raycast(findableCheck, out RaycastHit hitInfo))
         {
 
-            if (hitInfo.collider.CompareTag("Findable"))
-            {
-                Debug.Log("Findable Hit!");
-            }
+            
 
         }
     }
