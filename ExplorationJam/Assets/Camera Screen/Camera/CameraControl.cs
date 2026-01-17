@@ -14,6 +14,17 @@ public class CameraControl : MonoBehaviour
 
     public float maxVel = 1000f;
 
+    private float zoomMin = -8f;
+    private float zoomMax = -4f;
+    private float currentZoom = -5f;
+    private float startingZoom = -100f;
+
+    public Camera camera;
+
+    public bool zoomedIn = false;
+    public bool started = false;
+
+    public Transform CamTransform;
     private Vector2 rotateVel;
 
 
@@ -23,12 +34,22 @@ public class CameraControl : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+
+
+        currentZoom = startingZoom;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CameraZoom();
+
+        if (started == false)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             rotateVel = Vector2.zero;
@@ -40,8 +61,6 @@ public class CameraControl : MonoBehaviour
             CameraOrbit();
             return;
         }
-
-        Debug.Log(rotateVel);
 
         if (rotateVel.sqrMagnitude < minVel)
         {
@@ -79,5 +98,48 @@ public class CameraControl : MonoBehaviour
         }
 
         
+    }
+
+    private void CameraZoom()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        if (currentZoom == startingZoom && scroll > 0f)
+        {
+            if (started == false)
+            {
+                currentZoom = zoomMin;
+                started = true;
+            }
+        }
+        else if (scroll > 0f)
+        {
+            currentZoom = zoomMax;
+            if (started == false)
+            {
+                started = true;
+            }
+        }
+        else if (currentZoom == zoomMin && scroll < 0f)
+        {
+            if (started == true)
+            {
+                currentZoom = startingZoom;
+                started = false;
+            }
+        }
+        else if (scroll < 0f)
+        {
+            currentZoom = zoomMin;
+            if (started == false)
+            {
+                started = true;
+            }
+        }
+        
+
+            Vector3 camlocalPos = camera.transform.localPosition;
+        camlocalPos.z = Mathf.Lerp(camlocalPos.z, currentZoom, 10f * Time.deltaTime);
+        camera.transform.localPosition = camlocalPos;
     }
 }

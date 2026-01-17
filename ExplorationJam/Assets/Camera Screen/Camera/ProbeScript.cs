@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 public class ProbeScript : MonoBehaviour
 {
@@ -8,25 +9,43 @@ public class ProbeScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        findableCheck = new Ray(transform.position, transform.forward);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ProbeAttempt();
         }
+
+        checkForFindable();
     }
 
 
     private void ProbeAttempt()
     {
-        Debug.Log("Probe Attempted");
+        probeAttempt = new Ray(transform.position, transform.forward);
+
         if(Physics.Raycast(probeAttempt, out RaycastHit hitInfo))
         {
-            Debug.Log("Probe Hit: " + hitInfo.collider.name);
+            Debug.Log("Probe Attempt");
+        }
+    }
+
+    private void checkForFindable()
+    {
+        findableCheck = new Ray(transform.position, transform.forward);
+
+        if (Physics.Raycast(findableCheck, out RaycastHit hitInfo))
+        {
+
+            if (hitInfo.collider.CompareTag("Findable"))
+            {
+                Debug.Log("Findable Hit!");
+            }
+
         }
     }
 }

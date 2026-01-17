@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Findable", menuName = "Scriptable Objects/Findable")]
@@ -14,4 +15,6 @@ public class Findable : ScriptableObject
     public float value;
 
     public string customTag = "Findable";
+
+    public bool found = false;
 }
