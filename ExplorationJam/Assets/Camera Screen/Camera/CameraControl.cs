@@ -38,6 +38,9 @@ public class CameraControl : MonoBehaviour
 
     public GameObject[] taggedObjects;
 
+    public float CamTimer;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +74,18 @@ public class CameraControl : MonoBehaviour
         if (zoomedIn == true)
         {
             blackoutCamera.SetActive(true);
+
+            if (CamTimer > 0)
+            {
+                CamTimer = -Time.deltaTime;
+
+            }
+            if (CamTimer <= 0)
+            {
+                CamTimer = 0;
+            }
+            
+
 
         }
         else
