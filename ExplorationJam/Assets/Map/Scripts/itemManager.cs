@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,13 @@ public class itemManager : MonoBehaviour
             Planet planetScript = planet.GetComponent<Planet>();
             allItems.Add(planetScript.getItemList());
         }
+
+        int highest, medium, lowest = 0;
+        
+        highest = UnityEngine.Random.Range(0, allItems.Count);
+        medium = UnityEngine.Random.Range(0, allItems.Count);
+        lowest = UnityEngine.Random.Range(0, allItems.Count);
+        
     }
 
     public List<List<Planet.item>> getAllItems()
