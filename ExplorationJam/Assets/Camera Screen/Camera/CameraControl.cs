@@ -15,7 +15,7 @@ public class CameraControl : MonoBehaviour
     public float maxVel = 1000f;
 
     private float zoomMin = -8f;
-    private float zoomMax = -4f;
+    private float zoomMax = -5f;
     private float currentZoom = -4f;
     private float startingZoom = -100f;
 
@@ -32,6 +32,9 @@ public class CameraControl : MonoBehaviour
 
     public Transform CamTransform;
     private Vector2 rotateVel;
+
+    public GameObject blackoutCamera;
+
 
     public GameObject[] taggedObjects;
 
@@ -51,6 +54,8 @@ public class CameraControl : MonoBehaviour
         zoomMin = zoomMin + padding;
         zoomMax = zoomMax + padding;
 
+        blackoutCamera.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -63,10 +68,20 @@ public class CameraControl : MonoBehaviour
             return;
         }
 
+        if (zoomedIn == true)
+        {
+            blackoutCamera.SetActive(true);
+
+        }
+        else
+        {
+            blackoutCamera.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             rotateVel = Vector2.zero;
-            
+
         }
 
         if (Input.GetKey(KeyCode.Mouse1))
@@ -180,11 +195,12 @@ public class CameraControl : MonoBehaviour
             foreach (GameObject obj in taggedObjects)
             {
                     
-                    MeshRenderer foRend = obj.GetComponent<MeshRenderer>();
+                    Renderer foRend = obj.GetComponent<Renderer>();
                     foRend.enabled = trfl;
 
             }
             foVisible = trfl;
+            zoomedIn = trfl;
         }
     }
 }
