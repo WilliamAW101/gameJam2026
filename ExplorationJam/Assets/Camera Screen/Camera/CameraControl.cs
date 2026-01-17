@@ -138,7 +138,7 @@ public class CameraControl : MonoBehaviour
         }
         
 
-            Vector3 camlocalPos = camera.transform.localPosition;
+        Vector3 camlocalPos = camera.transform.localPosition;
         camlocalPos.z = Mathf.Lerp(camlocalPos.z, currentZoom, 10f * Time.deltaTime);
         camera.transform.localPosition = camlocalPos;
     }

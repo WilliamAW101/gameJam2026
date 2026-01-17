@@ -27,11 +27,10 @@ public class PlanetBehavior : MonoBehaviour
     {
         
         Vector3 randomDir = Random.onUnitSphere;
-
         Vector3 spawnPosition = transform.position + randomDir * radius;
 
-        GameObject foinstance = Instantiate(findableObject, spawnPosition, Quaternion.FromToRotation(Vector3.forward, randomDir));
-        transform.SetParent
+        GameObject foinstance = Instantiate(findableObject, spawnPosition, Quaternion.identity);
+
         foinstance.transform.localScale = findableObject.transform.localScale;
         foinstance.SetActive(true);
     }
