@@ -36,7 +36,7 @@ public class ProbeScript : MonoBehaviour
 
             if (hitInfo.collider.CompareTag("Findable"))
             {
-                Debug.Log("Findable Hit!");
+                
             }
 
         }
