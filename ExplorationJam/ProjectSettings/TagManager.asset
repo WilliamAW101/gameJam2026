@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Findable
+  serializedVersion: 3
+  tags:
+  - Planet
+  - Satellite
   layers:
   - Default
   - TransparentFX
