@@ -220,8 +220,9 @@ public class CameraControl : MonoBehaviour
 
             FoVisible(false);
         }
-        else if (scroll < 0f)
+        else if (scroll < 0f && currentZoom == zoomMax)
         {
+            ZoomSounds.Stop();
             PlaySound(ZoomOut);
 
             //Medium Zoom 
@@ -251,9 +252,7 @@ public class CameraControl : MonoBehaviour
             Debug.Log(taggedObjects.Length);
             foreach (GameObject obj in taggedObjects)
             {
-                    
-                    Renderer foRend = obj.GetComponent<Renderer>();
-                    foRend.enabled = trfl;
+                obj.SetActive(trfl);
 
             }
             foVisible = trfl;

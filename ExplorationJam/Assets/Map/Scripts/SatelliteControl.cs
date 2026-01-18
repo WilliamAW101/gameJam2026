@@ -5,7 +5,12 @@ public class SatelliteControl : MonoBehaviour
     [SerializeField] float thrustForce;
     private Rigidbody satelliteThruster;
     [SerializeField] OrbitPlanet orbitplanet;
-    
+    [SerializeField] public ParticleSystem ThrusterPart;
+
+    public AudioSource SatelliteAudio;
+    public AudioClip ThrusterSound;
+    public AudioClip ThrusterRelease;
+
     void Start()
     {
         satelliteThruster = GetComponent<Rigidbody>();
@@ -14,7 +19,17 @@ public class SatelliteControl : MonoBehaviour
     void Update()
     {
         rotateSatellite();
-        
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            ThrusterPart.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && ThrusterPart.isPlaying == false)
+        {
+            ThrusterPart.Play();
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             thrustForward(thrustForce);
@@ -60,5 +75,6 @@ public class SatelliteControl : MonoBehaviour
     public void thrustForward(float thrustForce)
     {
         satelliteThruster.AddForce(transform.up * thrustForce);
+        
     }
 }
