@@ -52,6 +52,8 @@ public class CameraControl : MonoBehaviour
     public AudioClip ZoomInWoosh;
     public AudioClip ZoomIdle;
 
+    public AudioClip Picture;
+
     public AudioClip GrabPlanet;
     public AudioClip ReleasePlanet;
 

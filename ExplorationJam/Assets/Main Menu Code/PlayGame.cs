@@ -19,7 +19,7 @@ public class PlayGame : MonoBehaviour
   
     public void PlayLevel()
     {
-        SceneManager.LoadScene("Camera Screen");
+        SceneManager.LoadScene("Map");
     }
 
     
