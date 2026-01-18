@@ -112,4 +112,9 @@ public class Planet : MonoBehaviour
     {
         return planetID;
     }
+    public string getSinglePlanetName()
+    {
+        return planetName;
+    }
+
 }

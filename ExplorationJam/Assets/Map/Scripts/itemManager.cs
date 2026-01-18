@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,17 @@ public class itemManager : MonoBehaviour
             planetScript.setPlanetID(i++);
             allItems.Add(planetScript.getItemList());
         }
+
+        int highest, medium, lowest = 0;
+        
+        highest = UnityEngine.Random.Range(0, allItems.Count);
+        medium = UnityEngine.Random.Range(0, allItems.Count);
+        while (highest == medium)
+            medium = UnityEngine.Random.Range(0, allItems.Count);
+        lowest = UnityEngine.Random.Range(0, allItems.Count);
+        while (lowest == medium || lowest == highest)
+            lowest = UnityEngine.Random.Range(0, allItems.Count);
+        
     }
 
     public List<List<Planet.item>> getAllItems()
@@ -52,7 +64,7 @@ public class itemManager : MonoBehaviour
     {
         for (int i = 0; i < allItems.Count; i++)
         {
-            Debug.Log("Items for Planet " + (i + 1) + ":");
+            Debug.Log("Items for Planet " + (i + 1) + ": which is " + planets[i].GetComponent<Planet>().getSinglePlanetName());
             foreach (Planet.item item in allItems[i])
             {
                 Debug.Log("Item ID: " + item.itemID + ", Item Cost: " + item.itemCost);
