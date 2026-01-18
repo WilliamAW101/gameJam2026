@@ -12,12 +12,11 @@ public class spawner : MonoBehaviour
 
     public Transform spawnLocation;
 
-      
-
-
 
     [SerializeField]
     private float meteorInterval = 3.5f;
+
+
     void Start()
     {
         StartCoroutine(spawnMeteor(meteorInterval, meteorPrefab));
