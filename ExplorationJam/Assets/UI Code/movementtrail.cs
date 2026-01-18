@@ -9,7 +9,7 @@ public class movementtrail : MonoBehaviour
     public GameObject meteor;
 
 
-   
+
 
     // Update is called once per frame
     void Update()
