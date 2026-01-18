@@ -9,6 +9,9 @@ public class resourceTracker : MonoBehaviour
     [SerializeField] private int maxFuelAmount = 500;
     private bool isLoss = false;
     private bool isWin = false;
+    private int highestItemID = -1;
+    private int mediumItemID = -1;
+    private int lowestItemID = -1;
     public static resourceTracker Instance { get; private set; }
     void Awake()
     {
@@ -56,5 +59,31 @@ public class resourceTracker : MonoBehaviour
     public bool getLoss()
     {
         return isLoss;
+    }
+
+    public void setHighestItemID(int id)
+    {
+        highestItemID = id;
+    }
+    public void setMediumItemID(int id)
+    {
+        mediumItemID = id;
+    }
+    public void setLowestItemID(int id)
+    {
+        lowestItemID = id;  
+    }
+
+    public int getHighestItemID()
+    {
+        return highestItemID;
+    }
+    public int getMediumItemID()
+    {
+        return mediumItemID;
+    }
+    public int getLowestItemID()
+    {
+        return lowestItemID;
     }
 }
