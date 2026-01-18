@@ -7,7 +7,8 @@ public class Transitions : MonoBehaviour
     public static Transitions Instance { get; private set; }
     [SerializeField] public itemManager itemmanager;
     [SerializeField] List<List<Planet.item>> allItems;
-    private resourceTracker resourceTracker;    
+    private resourceTracker resourceTracker;
+    private int planetIndex = -1;
     void Awake()
     {
         resourceTracker = Object.FindFirstObjectByType<resourceTracker>();
@@ -52,5 +53,15 @@ public class Transitions : MonoBehaviour
     {
         //Move Scenes
         SceneManager.LoadScene("Map");
+    }
+
+    public int getPlanetIndex()
+    {
+        return planetIndex;
+    }
+
+    public void setPlanetIndex(int index)
+    {
+        planetIndex = index;
     }
 }
