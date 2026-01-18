@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395e1866822d10c1abf8e2fb4781330a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::resourceTracker
-  fuelAmount: 500
+  fuelAmount: 10000
   totalCash: 0
   winningCashAmount: 150
   maxFuelAmount: 500
