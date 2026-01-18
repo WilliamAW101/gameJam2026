@@ -1,27 +1,44 @@
+using Unity.VisualScripting;
 using UnityEngine;
+
 public class SatelliteControl : MonoBehaviour
 {
     [SerializeField] float thrustForce;
     private Rigidbody satelliteThruster;
-    public OrbitPlanet orbitPlanet;
-    //[SerializeField] GameObject transitionObject;
-    //private Transitions transitions;
-
+    [SerializeField] OrbitPlanet orbitplanet;
+    
     void Start()
     {
         satelliteThruster = GetComponent<Rigidbody>();
-        
     }
+    
     void Update()
     {
         rotateSatellite();
-
+        
         if (Input.GetKey(KeyCode.W))
         {
             thrustForward(thrustForce);
         }
+        
+        if (orbitplanet.getIsAPlanet() == true)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log(orbitplanet.getCurrentPlanetID());
+                
+                if (Transitions.Instance != null)
+                {
+                    Transitions.Instance.ToCameraTransition(orbitplanet.getCurrentPlanetID());
+                }
+                else
+                {
+                    Debug.LogError("Bloody instance is null");
+                }
+            }
+        }
     }
-
+    
     public void rotateSatellite()
     {
         Vector3 mousePosition = Input.mousePosition;
@@ -32,7 +49,7 @@ public class SatelliteControl : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle - 90f);
     }
-
+    
     public void thrustForward(float thrustForce)
     {
         satelliteThruster.AddForce(transform.up * thrustForce);

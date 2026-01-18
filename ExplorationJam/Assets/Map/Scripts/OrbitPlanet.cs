@@ -11,7 +11,7 @@ public class OrbitPlanet : MonoBehaviour
     private Collider planetCollider;
     private float timer;
     private int currentPlanetID;
-    [SerializeField] Transitions transitions;
+    // [SerializeField] Transitions transitions;
     void Start()
     {
         satelliteVel = GetComponent<Rigidbody>();
@@ -37,20 +37,6 @@ public class OrbitPlanet : MonoBehaviour
                 timer = 0f; // reset timer
             }
         }
-
-        if (getIsAPlanet() == true)
-        {
-            Debug.Log("PRESS SPACE");
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Debug.Log(getCurrentPlanetID());
-                transitions.ToCameraTransition(getCurrentPlanetID());
-                {
-
-                }
-            }
-        }
-
     }
 
     void OnTriggerEnter(Collider other)
