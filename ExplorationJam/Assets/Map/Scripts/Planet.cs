@@ -46,7 +46,7 @@ public class Planet : MonoBehaviour
     {
         if (isEarth)
         {
-            return "Earth";
+            return "Home";
         }
         int enumLength = PlanetNames.GetNames(typeof(PlanetNames)).Length;
         int randomIndex = Random.Range(0, enumLength);

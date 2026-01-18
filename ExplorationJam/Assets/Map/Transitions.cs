@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Transitions : MonoBehaviour
 {
@@ -30,5 +31,15 @@ public class Transitions : MonoBehaviour
             Debug.Log(item.itemCost);
             Debug.Log(item.itemID);
         }
+
+
+        //Move Scenes
+        SceneManager.LoadScene("Camera Screen");
+    }
+
+    public void ToMapTransition(bool picTaken, int Score)
+    {
+        //Move Scenes
+        SceneManager.LoadScene("Map");
     }
 }
