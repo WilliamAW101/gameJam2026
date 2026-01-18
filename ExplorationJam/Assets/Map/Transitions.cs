@@ -22,7 +22,7 @@ public class Transitions : MonoBehaviour
         }
     }
 
-    public void ToCameraTransition(int planetIndex)
+    public List<Planet.item> ToCameraTransition(int planetIndex)
     {
         Debug.Log("In ToCameraTransition method");
         Debug.Log("Transitioning to camera view for planet index: " + planetIndex);
@@ -34,9 +34,10 @@ public class Transitions : MonoBehaviour
             Debug.Log(item.itemID);
         }
 
-
         //Move Scenes
         SceneManager.LoadScene("Camera Screen");
+
+        return planetItem;
     }
 
     public void ToMapAfterPicture(int Score)

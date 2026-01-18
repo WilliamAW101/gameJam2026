@@ -38,7 +38,7 @@ public class SatelliteControl : MonoBehaviour
             thrustForward(thrustForce);
             if (resourceTracker.Instance != null)
             {
-                resourceTracker.Instance.useFuel(3);
+                resourceTracker.Instance.useFuel(1);
             }
             else
             {
