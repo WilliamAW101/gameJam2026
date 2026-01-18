@@ -10,6 +10,8 @@ public class OrbitPlanet : MonoBehaviour
     private Transform planetTransform;
     private Collider planetCollider;
     private float timer;
+    private int currentPlanetID;
+    // [SerializeField] Transitions transitions;
     void Start()
     {
         satelliteVel = GetComponent<Rigidbody>();
@@ -35,13 +37,15 @@ public class OrbitPlanet : MonoBehaviour
                 timer = 0f; // reset timer
             }
         }
-            
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Planet"))
         {
+            planet = other.gameObject;
+            Planet currentPlanet = planet.GetComponent<Planet>();
+            currentPlanetID = currentPlanet.getPlanetID();
             Debug.Log("Satellite is near planet");
             planetCollider = other;
             joiningPlanetFlag = true;
@@ -52,6 +56,7 @@ public class OrbitPlanet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Planet"))
         {
+            currentPlanetID = -1;
             Debug.Log("Satellite is leaving planet");
             leavingPlanet();
         }
@@ -72,5 +77,15 @@ public class OrbitPlanet : MonoBehaviour
         planetTransform = planet.transform;
         isAtPlanet = true;
         timer = 0f;
+    }
+
+    public bool getIsAPlanet()
+    {
+        return isAtPlanet;
+    }
+
+    public int getCurrentPlanetID()
+    {
+        return currentPlanetID;
     }
 }

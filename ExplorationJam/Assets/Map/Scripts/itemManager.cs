@@ -34,11 +34,51 @@ public class itemManager : MonoBehaviour
 
     private void grabAllItems()
     {
+        int i = 0;
         foreach (GameObject planet in planets)
         {
             Planet planetScript = planet.GetComponent<Planet>();
+            planetScript.setPlanetID(i++);
             allItems.Add(planetScript.getItemList());
         }
+
+        if (allItems.Count < 3)
+        {
+            Debug.LogError("Need at least 3 item lists");
+            return;
+        }
+
+        int highest, medium, lowest = 0;
+        
+        highest = Random.Range(0, allItems.Count);
+        medium = Random.Range(0, allItems.Count);
+        while (highest == medium)
+            medium = Random.Range(0, allItems.Count);
+        lowest = Random.Range(0, allItems.Count);
+        while (lowest == medium || lowest == highest)
+            lowest = Random.Range(0, allItems.Count);
+
+        int highestIndex = Random.Range(0, allItems[highest].Count);
+        Planet.item item = allItems[highest][highestIndex];
+        item.itemCost = 100;
+        allItems[highest][highestIndex] = item;
+
+        int mediumIndex = Random.Range(0, allItems[medium].Count);
+        item = allItems[medium][mediumIndex];
+        item.itemCost = 75;
+        allItems[medium][mediumIndex] = item;
+
+        int lowestIndex = Random.Range(0, allItems[lowest].Count);
+        item = allItems[lowest][lowestIndex];
+        item.itemCost = 20;
+        allItems[lowest][lowestIndex] = item;
+
+        if (allItems[highest].Count == 0 || allItems[medium].Count == 0 || allItems[lowest].Count == 0)
+        {
+            Debug.LogError("Selected item list is empty");
+            return;
+        }
+        
     }
 
     public List<List<Planet.item>> getAllItems()
@@ -50,7 +90,7 @@ public class itemManager : MonoBehaviour
     {
         for (int i = 0; i < allItems.Count; i++)
         {
-            Debug.Log("Items for Planet " + (i + 1) + ":");
+            Debug.Log("Items for Planet " + (i + 1) + ": which is " + planets[i].GetComponent<Planet>().getSinglePlanetName());
             foreach (Planet.item item in allItems[i])
             {
                 Debug.Log("Item ID: " + item.itemID + ", Item Cost: " + item.itemCost);
