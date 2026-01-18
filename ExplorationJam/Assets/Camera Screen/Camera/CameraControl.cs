@@ -284,7 +284,7 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    private void PlaySound(AudioClip clip)
+    public void PlaySound(AudioClip clip)
     {
         if (ZoomSounds != null && clip != null)
         {

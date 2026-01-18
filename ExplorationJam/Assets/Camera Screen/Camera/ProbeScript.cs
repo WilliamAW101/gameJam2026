@@ -10,7 +10,9 @@ public class ProbeScript : MonoBehaviour
 
     public float probeRadius;
     public Transitions transitions;
-       
+    public CameraControl cameraControl;
+    public AudioClip takePictureSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +24,13 @@ public class ProbeScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ProbeAttempt();
+            if (cameraControl.zoomedIn == true)
+            {
+                cameraControl.PlaySound(takePictureSound);
+                ProbeAttempt();
+            }
+            
+
         }
     }
 
