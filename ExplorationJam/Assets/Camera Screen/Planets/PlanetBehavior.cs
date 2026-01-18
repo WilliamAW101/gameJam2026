@@ -40,15 +40,10 @@ public class PlanetBehavior : MonoBehaviour
 
         for (int i = 0; i <= FoCount; i++)
         {
-            //Debug.Log(foList.Length);
-            //int randomFo = Random.Range(0, foList.Length - 1);
-            //SpawnOnPlanet(foList[randomFo], i);
-
-            Transitions.Instance.ToCameraTransition(0);
-
+            Debug.Log(foList.Length);
+            int randomFo = Random.Range(0, foList.Length - 1);
+            SpawnOnPlanet(foList[randomFo], i);
         }
-
-
     }
 
     // Update is called once per frame
