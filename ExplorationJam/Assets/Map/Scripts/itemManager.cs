@@ -6,9 +6,12 @@ public class itemManager : MonoBehaviour
     [SerializeField] public PlanetManager planetManager;
     [SerializeField] List<List<Planet.item>> allItems = new List<List<Planet.item>>();
     private GameObject[] planets;
+    private int highestItemID = -1;
+    private int mediumItemID = -1;
+    private int lowestItemID = -1;
     
 
-    void Start()
+    void Awake()
     {
         if (planetManager == null)
         {
@@ -73,12 +76,23 @@ public class itemManager : MonoBehaviour
         item.itemCost = 20;
         allItems[lowest][lowestIndex] = item;
 
+        highestItemID = allItems[highest][highestIndex].itemID;
+        Debug.Log("Highest Item ID selected: " + highestItemID);
+        mediumItemID = allItems[medium][mediumIndex].itemID;
+        Debug.Log("Medium Item ID selected: " + mediumItemID);
+        lowestItemID = allItems[lowest][lowestIndex].itemID;
+        Debug.Log("Lowest Item ID selected: " + lowestItemID);
+
         if (allItems[highest].Count == 0 || allItems[medium].Count == 0 || allItems[lowest].Count == 0)
         {
             Debug.LogError("Selected item list is empty");
             return;
         }
-        
+
+        resourceTracker.Instance.setHighestItemID(highestItemID);
+        resourceTracker.Instance.setMediumItemID(mediumItemID);
+        resourceTracker.Instance.setLowestItemID(lowestItemID);
+
     }
 
     public List<List<Planet.item>> getAllItems()
