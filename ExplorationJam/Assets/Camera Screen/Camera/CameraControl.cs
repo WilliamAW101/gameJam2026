@@ -197,7 +197,11 @@ public class CameraControl : MonoBehaviour
         }
         else if (scroll > 0f)
         {
-            PlaySound(ZoomIn);
+            if (zoomedIn == false)
+            {
+                PlaySound(ZoomIn);
+            }
+            
 
             //Zoomed in all the way
             currentZoom = zoomMax;
@@ -234,8 +238,20 @@ public class CameraControl : MonoBehaviour
 
             FoVisible(false);
         }
+        else if (scroll < 0f)
+        {
 
-        
+            //Medium Zoom 
+            currentZoom = zoomMin;
+            if (started == false)
+            {
+                started = true;
+            }
+
+            FoVisible(false);
+        }
+
+
 
         Vector3 camlocalPos = camera.transform.localPosition;
         camlocalPos.z = Mathf.Lerp(camlocalPos.z, currentZoom, 10f * Time.deltaTime);

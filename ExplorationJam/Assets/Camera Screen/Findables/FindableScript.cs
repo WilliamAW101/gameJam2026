@@ -10,6 +10,8 @@ public class FindableScripts : MonoBehaviour
     public GameObject MountainFo;
 
     public GameObject[] foList;
+    public GameObject resourceTracker;
+    public GameObject DataTransfer;
 
     public int ScoreTotal;
 
