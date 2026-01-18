@@ -41,19 +41,20 @@ public class ProbeScript : MonoBehaviour
 
         if (Physics.Raycast(findableCheck, out RaycastHit hitInfo))
         {
+            Debug.Log("Picture Taken");
             if (hitInfo.transform.gameObject.TryGetComponent<FindableID>(out FindableID findable))
             {
                 ScoreFromPicture = findable.findableID;
             }
             else
             {
-                ScoreFromPicture = 0;
+                ScoreFromPicture = 100;
             }
 
 
             if (hitInfo.collider.CompareTag("Findable"))
             {
-                Debug.Log("Picture Taken");
+                
                 Debug.Log("Score From Picture: " + ScoreFromPicture);
                 Debug.Log("Findable ID: " + findable.findableID);
                 transitions.ToMapAfterPicture(ScoreFromPicture);

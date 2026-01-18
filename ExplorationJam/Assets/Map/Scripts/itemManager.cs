@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class itemManager : MonoBehaviour
 {
+    public static itemManager Instance { get; private set; }
     [SerializeField] public PlanetManager planetManager;
     [SerializeField] List<List<Planet.item>> allItems = new List<List<Planet.item>>();
     private GameObject[] planets;
     private int highestItemID = -1;
     private int mediumItemID = -1;
     private int lowestItemID = -1;
-    
+
 
     void Awake()
     {
@@ -23,6 +24,16 @@ public class itemManager : MonoBehaviour
         Debug.Log("Total items across all planets: " + countAllItems());
         grabAllItems();
         ListAllItems();
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private int countAllItems()

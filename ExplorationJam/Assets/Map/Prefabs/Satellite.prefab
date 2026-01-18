@@ -32,15 +32,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060291908856815739}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.22, y: 6.26, z: 8}
+  m_LocalRotation: {x: 0.20565198, y: -0.20565194, z: 0.67654073, w: 0.6765407}
+  m_LocalPosition: {x: 0.22, y: 6.258983, z: 7.9996905}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8702866111217251941}
   - {fileID: 4867740764397596311}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 33.816, y: 0, z: 90}
 --- !u!33 &1959691593418338426
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45195c2f031730fffbd634da2cc42add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrbitPlanet
-  orbitSpeed: 5
+  orbitSpeed: 7
 --- !u!114 &3832055939607013703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,12 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fd586af8a231ce09a44bfb7ae72b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
-  thrustForce: 20
+  thrustForce: 10
   orbitplanet: {fileID: 4477315426985698502}
   ThrusterPart: {fileID: 2214679349629678086}
-  SatelliteAudio: {fileID: 0}
-  ThrusterSound: {fileID: 0}
-  ThrusterRelease: {fileID: 0}
   SatelliteAudio: {fileID: 0}
   ThrusterSound: {fileID: 0}
   ThrusterRelease: {fileID: 0}
@@ -302,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 278753412282456654, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
       propertyPath: m_Name
       value: Thruster
+      objectReference: {fileID: 0}
+    - target: {fileID: 278753412282456654, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3467961606935686383, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
       propertyPath: m_LocalScale.x
