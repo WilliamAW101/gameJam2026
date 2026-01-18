@@ -9,6 +9,7 @@ public class Planet : MonoBehaviour
     [SerializeField] bool medium;
     [SerializeField] bool large;
     [SerializeField] bool isEarth = false;
+    [SerializeField] nameTag nameTagScript;
     public struct item
     {
         public int itemID;
@@ -17,19 +18,14 @@ public class Planet : MonoBehaviour
     item[] items = new List<item>().ToArray();
     private int itemCount;
     private string planetName;
+    private int planetID;
 
     enum PlanetNames
     {
-        Zephyrus,
-        Aetheria,
-        Lumora,
-        Nereidia,
-        Solara,
-        Terranova,
-        Astralis,
-        Vortexia,
-        Celestara,
-        Nebulon
+        Zephyrus, Aetheria, Lumora, Nereidia, Solara, TerranovaAstralis, Vortexia, CelestaraNebulonLunastra, XelZorp,
+        Raydasin, Zarkova, Epicin,  Flarp, Jabberwock, SORN, EnteriussIppins0da , MarkII, MarkINiddlethrowBeezgwax, MarkV, 
+        MarkXIVVMarkXVIVI, Deekaye, Alelelon,TOI84b, Wasp55A, Kelt302, Cintiq, Fibblthp, Najsakopajk, ZembrettaPuli, 
+        KuaKuaAhra, Poleria, NacthtwactBambruush, Notmars, Gliese581g, HD209458b, Kepler22b, ProximaCentaur, Miku, 
     }
 
     void Awake()
@@ -42,12 +38,16 @@ public class Planet : MonoBehaviour
 
     void Start()
     {
-        // printItems();
+        nameTagScript.setText(planetName);
     }
 
     // randomly select a planet name from the enum
     private string getPlanetName()
     {
+        if (isEarth)
+        {
+            return "Earth";
+        }
         int enumLength = PlanetNames.GetNames(typeof(PlanetNames)).Length;
         int randomIndex = Random.Range(0, enumLength);
         planetName = ((PlanetNames)randomIndex).ToString();
@@ -101,4 +101,37 @@ public class Planet : MonoBehaviour
     {
         return itemCount;
     }
+
+    public void setPlanetID(int id)
+    {
+        planetID = id;
+    }
+
+    public int getPlanetID()
+    {
+        return planetID;
+    }
+    public string getSinglePlanetName()
+    {
+        return planetName;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Satellite"))
+        {
+            Debug.Log("Player entered planet gravity field of " + planetName);
+            nameTagScript.SetVisibility(true);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Satellite"))
+        {
+            Debug.Log("Player exited planet gravity field of " + planetName);
+            nameTagScript.SetVisibility(false);
+        }
+    }
+
 }
