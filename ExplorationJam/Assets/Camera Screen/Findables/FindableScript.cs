@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
-public class FindableScore : MonoBehaviour
+public class FindableScripts : MonoBehaviour
 {
     public GameObject CraterFo;
     public GameObject PyramidFo;
@@ -9,12 +9,16 @@ public class FindableScore : MonoBehaviour
     public GameObject RuinsFo;
     public GameObject MountainFo;
 
+    public GameObject[] foList;
+    public GameObject resourceTracker;
+    public GameObject DataTransfer;
+
     public int ScoreTotal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-
+        foList = new GameObject[] { CraterFo, PyramidFo, AlienFo, RuinsFo, MountainFo };
     }
 
     // Update is called once per frame

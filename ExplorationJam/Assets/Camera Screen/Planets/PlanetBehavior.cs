@@ -8,6 +8,8 @@ public class PlanetBehavior : MonoBehaviour
 
     public SphereCollider SphereCollider;
     public Material color;
+    public FindableScripts FoManager;
+    private GameObject[] foList;
 
     public float radius;
     public Vector3 scale;
@@ -19,22 +21,24 @@ public class PlanetBehavior : MonoBehaviour
 
     private void Awake()
     {
+        
+        
+    }
+    void Start()
+    {
+        foList = FoManager.foList;
         scale = transform.localScale;
         SphereCollider = GetComponent<SphereCollider>();
         color = GetComponent<Material>();
 
 
-        radius = SphereCollider.radius * scale.x;
 
         for (int i = 0; i <= FoCount; i++)
         {
-            SpawnOnPlanet();
+            Debug.Log(foList.Length);
+            int randomFo = Random.Range(0, foList.Length - 1);
+            SpawnOnPlanet(foList[randomFo]);
         }
-        
-    }
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -43,16 +47,16 @@ public class PlanetBehavior : MonoBehaviour
         
     }
 
-    void SpawnOnPlanet()
+    void SpawnOnPlanet(GameObject fo)
     {
         
         Vector3 randomDir = Random.onUnitSphere;
         Vector3 spawnPosition = transform.position + randomDir * radius;
         Quaternion spawnRotation = Quaternion.LookRotation(randomDir);
 
-        GameObject foinstance = Instantiate(findableObject, spawnPosition, spawnRotation);
+        GameObject foinstance = Instantiate(fo, spawnPosition, spawnRotation);
 
-        foinstance.transform.localScale = findableObject.transform.localScale;
+        foinstance.transform.localScale = fo.transform.localScale;
         foinstance.SetActive(true);
     }
 }

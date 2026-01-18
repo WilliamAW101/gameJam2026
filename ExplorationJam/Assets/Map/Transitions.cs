@@ -37,7 +37,13 @@ public class Transitions : MonoBehaviour
         SceneManager.LoadScene("Camera Screen");
     }
 
-    public void ToMapTransition(bool picTaken, int Score)
+    public void ToMapAfterPicture(bool picTaken, int Score)
+    {
+        //Move Scenes
+        SceneManager.LoadScene("Map");
+    }
+
+    public void ToMapTransition()
     {
         //Move Scenes
         SceneManager.LoadScene("Map");

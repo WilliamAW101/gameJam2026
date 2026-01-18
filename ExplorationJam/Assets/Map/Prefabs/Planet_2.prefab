@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 4536400745381452318}
   - component: {fileID: 3535033005266342186}
   - component: {fileID: 7963271095464040634}
+  - component: {fileID: 1732671206724166066}
   m_Layer: 0
   m_Name: Planet_2
   m_TagString: Planet
@@ -457,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054705dcc7c556cbdb726c273079d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Planet
-  gravityStrength: 400
+  gravityStrength: 100
   small: 1
   medium: 0
   large: 0
@@ -484,6 +485,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1732671206724166066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6308512935077720185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859cb6c3b296c82469794560f7aee25b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpinScript
+  minSpeed: 10
+  maxSpeed: 30
 --- !u!1 &6923039269380239497
 GameObject:
   m_ObjectHideFlags: 0
