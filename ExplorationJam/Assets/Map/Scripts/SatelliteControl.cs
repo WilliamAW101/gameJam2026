@@ -23,11 +23,14 @@ public class SatelliteControl : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W))
         {
             ThrusterPart.Stop();
+            SatelliteAudio.PlayOneShot(ThrusterSound);
         }
 
         if (Input.GetKeyDown(KeyCode.W) && ThrusterPart.isPlaying == false)
         {
             ThrusterPart.Play();
+            SatelliteAudio.clip = ThrusterSound;
+            SatelliteAudio.Play();
         }
 
         if (Input.GetKey(KeyCode.W))

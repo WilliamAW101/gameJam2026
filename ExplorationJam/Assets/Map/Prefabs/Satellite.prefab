@@ -187,7 +187,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
   thrustForce: 1
   orbitplanet: {fileID: 4477315426985698502}
-  ThrusterPart: {fileID: 0}
+  ThrusterPart: {fileID: 2214679349629678086}
+  SatelliteAudio: {fileID: 0}
+  ThrusterSound: {fileID: 0}
+  ThrusterRelease: {fileID: 0}
 --- !u!82 &619213139769527160
 AudioSource:
   m_ObjectHideFlags: 0
@@ -349,11 +352,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7859067189407690878, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
+--- !u!198 &2214679349629678086 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7859067189407690878, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
+  m_PrefabInstance: {fileID: 8335350209244775032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4867740764397596311 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3467961606935686383, guid: 7db5fb245bcaf4e409f40531d196c3c2, type: 3}
