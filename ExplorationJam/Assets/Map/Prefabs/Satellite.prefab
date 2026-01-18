@@ -185,9 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fd586af8a231ce09a44bfb7ae72b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
-  thrustForce: 1
+  thrustForce: 20
   orbitplanet: {fileID: 4477315426985698502}
   ThrusterPart: {fileID: 2214679349629678086}
+  SatelliteAudio: {fileID: 0}
+  ThrusterSound: {fileID: 0}
+  ThrusterRelease: {fileID: 0}
   SatelliteAudio: {fileID: 0}
   ThrusterSound: {fileID: 0}
   ThrusterRelease: {fileID: 0}

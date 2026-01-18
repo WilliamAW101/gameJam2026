@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054705dcc7c556cbdb726c273079d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Planet
-  gravityStrength: 400
+  gravityStrength: 100
   small: 1
   medium: 0
   large: 0
