@@ -649,7 +649,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ef57a83f0ce25bb4087c78caf862a0dd, type: 2}
+      objectReference: {fileID: 2100000, guid: 35aaf841d04c336459bf2ee88fcb8972, type: 2}
     - target: {fileID: 919132149155446097, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_Name
       value: planetBase_QuadSphere_V1
