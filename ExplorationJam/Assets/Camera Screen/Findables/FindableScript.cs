@@ -3,6 +3,11 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class FindableScore : MonoBehaviour
 {
+    public GameObject CraterFo;
+    public GameObject PyramidFo;
+    public GameObject AlienFo;
+    public GameObject RuinsFo;
+    public GameObject MountainFo;
 
     public int FoScore;
     public bool found;
