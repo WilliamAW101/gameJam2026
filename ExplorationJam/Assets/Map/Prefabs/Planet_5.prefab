@@ -321,7 +321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -21.6}
+  m_AnchoredPosition: {x: 0, y: 228}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8073812400325849738
@@ -484,7 +484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: 0}
+  m_AnchoredPosition: {x: -179, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4415414850600337813
@@ -517,8 +517,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Planet
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e80ba384a7b75db4aaf701112963f48b, type: 2}
+  m_sharedMaterial: {fileID: -6571085651670908500, guid: e80ba384a7b75db4aaf701112963f48b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -573,14 +573,14 @@ MonoBehaviour:
   m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_horizontalMapping: 0
-  m_verticalMapping: 0
+  m_verticalMapping: 1
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -130.15498, w: 0}
+  m_margin: {x: 0, y: 0, z: -374.6426, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -596,15 +596,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10.8217
+      value: 8.225416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10.8217
+      value: 8.225416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10.8217
+      value: 8.225416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -649,7 +649,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: abcb71895934f9d45a8a3ed693e424d6, type: 2}
+      objectReference: {fileID: 2100000, guid: ef57a83f0ce25bb4087c78caf862a0dd, type: 2}
     - target: {fileID: 919132149155446097, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_Name
       value: planetBase_QuadSphere_V1
