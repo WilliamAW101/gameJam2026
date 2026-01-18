@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 1720941929}
   - component: {fileID: 1720941928}
   - component: {fileID: 1720941927}
-  - component: {fileID: 1720941930}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -437,33 +436,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720941926}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1720941930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720941926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.StandaloneInputModule
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!1001 &696874114426004060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -618,30 +597,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -15.700012
       objectReference: {fileID: 0}
-    - target: {fileID: 2814151577296880391, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335263254507930813, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_Colors.m_NormalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335263254507930813, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_Colors.m_PressedColor.a
-      value: 0.70980394
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335263254507930813, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_Colors.m_DisabledColor.a
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335263254507930813, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_Colors.m_SelectedColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4335263254507930813, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_Colors.m_HighlightedColor.a
-      value: 0.9137255
-      objectReference: {fileID: 0}
     - target: {fileID: 6370268729737992090, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -653,10 +608,6 @@ PrefabInstance:
     - target: {fileID: 6370268729737992090, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
       propertyPath: m_Color.r
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073148703334095937, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -188.29999
       objectReference: {fileID: 0}
     - target: {fileID: 8662993062677005408, guid: 0e32c751b218b7d4ea371190ce0b009b, type: 3}
       propertyPath: m_Camera
@@ -873,30 +824,6 @@ PrefabInstance:
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: xRange.x
-      value: -900
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: xRange.y
-      value: -800
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: yRange.x
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: yRange.y
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: zRange.x
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
-      propertyPath: zRange.y
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 5458344687326655016, guid: 557eb53f7d9ad6b4fbd3728b61386c67, type: 3}
       propertyPath: meteorInterval
       value: 20
       objectReference: {fileID: 0}
@@ -1029,8 +956,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 162668033}
   - {fileID: 684517881}
-  - {fileID: 1720941929}
   - {fileID: 1907672835106371634}
+  - {fileID: 1720941929}
   - {fileID: 696874114426004060}
   - {fileID: 3742997460835009681}
   - {fileID: 2246814416752658637}

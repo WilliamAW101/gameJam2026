@@ -8,9 +8,9 @@ public class spawner : MonoBehaviour
     [SerializeField]
     private GameObject meteorPrefab;
 
-    [SerializeField] private Vector2 xRange = new Vector2(-600f, -400f);
-    [SerializeField] private Vector2 yRange = new Vector2(25f, 65f);
-    [SerializeField] private Vector2 zRange = new Vector2(400f, 500f);
+    public GameObject objectToSpawn;
+
+    public Transform spawnLocation;
 
 
     [SerializeField]
@@ -25,18 +25,16 @@ public class spawner : MonoBehaviour
     private IEnumerator spawnMeteor(float interval, GameObject Meteor)
     {
         yield return new WaitForSeconds(interval);
-
-        Vector3 randomPosition = new Vector3(
-            Random.Range(xRange.x, xRange.y),
-            Random.Range(yRange.x, yRange.y),
-            Random.Range(zRange.x, zRange.y)
-        );
-
-        Instantiate(Meteor, randomPosition, Quaternion.identity);
-
+        Vector3 specificPosition = new Vector3(-600, Random.Range(25, 65), 449);
+        GameObject newMeteor = Instantiate(Meteor, specificPosition, Quaternion.identity);
         StartCoroutine(spawnMeteor(interval, Meteor));
     }
 
+    public void SpawnObjectAtSpecificSpot()
+    {
+        Quaternion desiredRotation = Quaternion.Euler(0f, 180f, 0f);
+        Instantiate(objectToSpawn, spawnLocation.position, desiredRotation);
+    }
 
-
+   
 }
