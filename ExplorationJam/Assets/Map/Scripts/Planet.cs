@@ -16,7 +16,8 @@ public class Planet : MonoBehaviour
     }
     item[] items = new List<item>().ToArray();
     private int itemCount;
-    [SerializeField] string planetName;
+    private string planetName;
+    private int planetID;
 
     enum PlanetNames
     {
@@ -102,6 +103,15 @@ public class Planet : MonoBehaviour
         return itemCount;
     }
 
+    public void setPlanetID(int id)
+    {
+        planetID = id;
+    }
+
+    public int getPlanetID()
+    {
+        return planetID;
+    }
     public string getSinglePlanetName()
     {
         return planetName;

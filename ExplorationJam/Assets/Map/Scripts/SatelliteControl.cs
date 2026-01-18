@@ -3,9 +3,14 @@ public class SatelliteControl : MonoBehaviour
 {
     [SerializeField] float thrustForce;
     private Rigidbody satelliteThruster;
+    public OrbitPlanet orbitPlanet;
+    //[SerializeField] GameObject transitionObject;
+    //private Transitions transitions;
+
     void Start()
     {
         satelliteThruster = GetComponent<Rigidbody>();
+        
     }
     void Update()
     {

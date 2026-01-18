@@ -35,9 +35,11 @@ public class itemManager : MonoBehaviour
 
     private void grabAllItems()
     {
+        int i = 0;
         foreach (GameObject planet in planets)
         {
             Planet planetScript = planet.GetComponent<Planet>();
+            planetScript.setPlanetID(i++);
             allItems.Add(planetScript.getItemList());
         }
 
