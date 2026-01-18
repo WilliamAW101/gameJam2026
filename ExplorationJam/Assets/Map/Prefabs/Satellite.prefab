@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fd586af8a231ce09a44bfb7ae72b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
-  thrustForce: 2
+  thrustForce: 0.9
   orbitplanet: {fileID: 4477315426985698502}
 --- !u!1001 &9172833960653148558
 PrefabInstance:

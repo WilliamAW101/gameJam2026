@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054705dcc7c556cbdb726c273079d990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Planet
-  gravityStrength: 200
+  gravityStrength: 250
   small: 0
   medium: 0
   large: 0
@@ -596,15 +596,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7.1128287
+      value: 7.8675
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.1128287
+      value: 7.8675
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 7.1128287
+      value: 7.8675
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b904e2bc93cbb9f47a85df40b1006afb, type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,18 +9,21 @@ public class FindableScore : MonoBehaviour
     public GameObject RuinsFo;
     public GameObject MountainFo;
 
-    public int FoScore;
-    public bool found;
-    //Reference Master Script for Score
+    public int ScoreTotal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        FoScore = 100;
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    public void addToScore()
     {
         
     }

@@ -4,8 +4,11 @@ using UnityEngine.UIElements;
 public class PlanetBehavior : MonoBehaviour
 {
     public GameObject findableObject;
+    public Transitions transitions;
 
     public SphereCollider SphereCollider;
+    public Material color;
+
     public float radius;
     public Vector3 scale;
     public int FoCount;
@@ -18,6 +21,8 @@ public class PlanetBehavior : MonoBehaviour
     {
         scale = transform.localScale;
         SphereCollider = GetComponent<SphereCollider>();
+        color = GetComponent<Material>();
+
 
         radius = SphereCollider.radius * scale.x;
 
@@ -29,7 +34,6 @@ public class PlanetBehavior : MonoBehaviour
     }
     void Start()
     {
-        
         
     }
 
