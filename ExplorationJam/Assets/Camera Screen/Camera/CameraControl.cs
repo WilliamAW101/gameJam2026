@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 
 public class CameraControl : MonoBehaviour
@@ -41,13 +42,27 @@ public class CameraControl : MonoBehaviour
     public float CamTimer;
 
     public GameObject BackButton;
-    public 
+    public AudioSource ZoomSounds;
+    public AudioSource GameSounds;
+
+    [SerializeField]
+    public AudioClip ZoomIn;
+    public AudioClip ZoomOut;
+    public AudioClip ZoomOutWoosh;
+    public AudioClip ZoomInWoosh;
+    public AudioClip ZoomIdle;
+
+    public AudioClip GrabPlanet;
+    public AudioClip ReleasePlanet;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         float radius = planet.GetComponent<SphereCollider>().radius;
+
+        ZoomSounds = GetComponent<AudioSource>();
+
         float size = planet.transform.localScale.x;
 
         Cursor.visible = true;
@@ -89,12 +104,18 @@ public class CameraControl : MonoBehaviour
                 CamTimer = 0;
             }
             
-
+            if (!ZoomSounds.isPlaying)
+            {
+                ZoomSounds.loop = true;
+                ZoomSounds.clip = ZoomIdle;
+                ZoomSounds.Play();
+            }
 
         }
         else
         {
             blackoutCamera.SetActive(false);
+            ZoomSounds.loop = false;
         }
 
         if (currentZoom == startingZoom)
@@ -176,6 +197,8 @@ public class CameraControl : MonoBehaviour
         }
         else if (scroll > 0f)
         {
+            PlaySound(ZoomIn);
+
             //Zoomed in all the way
             currentZoom = zoomMax;
             if (started == false)
@@ -187,6 +210,7 @@ public class CameraControl : MonoBehaviour
         }
         else if (currentZoom == zoomMin && scroll < 0f)
         {
+            //Zoomed out all the way
             if (started == true)
             {
                 BackButton.SetActive(true);
@@ -198,6 +222,9 @@ public class CameraControl : MonoBehaviour
         }
         else if (scroll < 0f)
         {
+            PlaySound(ZoomOut);
+
+            //Medium Zoom 
             currentZoom = zoomMin;
             if (started == false)
             {
@@ -231,6 +258,14 @@ public class CameraControl : MonoBehaviour
             }
             foVisible = trfl;
             zoomedIn = trfl;
+        }
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        if (ZoomSounds != null && clip != null)
+        {
+            ZoomSounds.PlayOneShot(clip);
         }
     }
 }

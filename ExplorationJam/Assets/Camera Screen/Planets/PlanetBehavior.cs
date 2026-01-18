@@ -22,6 +22,7 @@ public class PlanetBehavior : MonoBehaviour
         scale = transform.localScale;
         SphereCollider = GetComponent<SphereCollider>();
         color = GetComponent<Material>();
+        color.
 
 
         radius = SphereCollider.radius * scale.x;
