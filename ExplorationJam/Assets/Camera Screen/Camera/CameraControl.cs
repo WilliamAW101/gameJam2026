@@ -54,9 +54,10 @@ public class CameraControl : MonoBehaviour
 
     public AudioClip Picture;
 
-    public AudioClip GrabPlanet;
+    public AudioClip[] GrabPlanet;
     public AudioClip ReleasePlanet;
 
+    public GameObject[] objectsOnPlanet;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -130,10 +131,10 @@ public class CameraControl : MonoBehaviour
         }
 
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            
             rotateVel = Vector2.zero;
-
         }
 
         if (Input.GetKey(KeyCode.Mouse1))
@@ -156,7 +157,11 @@ public class CameraControl : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-
+            if (currentZoom == zoomMin)
+            {
+                int randsound = Random.Range(0, GrabPlanet.Length);
+                GameSounds.PlayOneShot(GrabPlanet[randsound]);
+            }
         }
 
 
@@ -270,7 +275,8 @@ public class CameraControl : MonoBehaviour
             Debug.Log(taggedObjects.Length);
             foreach (GameObject obj in taggedObjects)
             {
-                obj.SetActive(trfl);
+                
+                //obj.SetActive(trfl);
 
             }
             foVisible = trfl;

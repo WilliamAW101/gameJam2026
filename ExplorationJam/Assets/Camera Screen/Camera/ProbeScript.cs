@@ -6,7 +6,10 @@ public class ProbeScript : MonoBehaviour
     Ray findableCheck;
     Ray probeAttempt;
 
+    public int ScoreFromPicture;
+
     public float probeRadius;
+    public Transitions transitions;
        
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,37 +24,34 @@ public class ProbeScript : MonoBehaviour
         {
             ProbeAttempt();
         }
-
-        checkForFindable();
     }
 
 
     private void ProbeAttempt()
     {
-        probeAttempt = new Ray(transform.position, transform.forward);
-
-        if(Physics.SphereCast(probeAttempt, probeRadius, out RaycastHit hitInfo))
-        {
-            Debug.Log("Probe Attempt");
-
-            if (hitInfo.collider.CompareTag("Findable"))
-            {
-                
-            }
-
-        }
-    }
-
-    private void checkForFindable()
-    {
         findableCheck = new Ray(transform.position, transform.forward);
 
         if (Physics.Raycast(findableCheck, out RaycastHit hitInfo))
         {
+            if (hitInfo.transform.gameObject.TryGetComponent<FindableID>(out FindableID findable))
+            {
+                ScoreFromPicture = findable.findableID;
+            }
+            else
+            {
+                ScoreFromPicture = 0;
+            }
+
+
             if (hitInfo.collider.CompareTag("Findable"))
             {
+                Debug.Log("Picture Taken");
+                Debug.Log("Score From Picture: " + ScoreFromPicture);
+                Debug.Log("Findable ID: " + findable.findableID);
+                transitions.ToMapAfterPicture(ScoreFromPicture);
 
             }
         }
     }
 }
+

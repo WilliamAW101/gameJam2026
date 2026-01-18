@@ -18,7 +18,7 @@ public class FindableScripts : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        foList = new GameObject[] { CraterFo, PyramidFo, AlienFo, RuinsFo, MountainFo };
+        foList = new GameObject[] { AlienFo, CraterFo, PyramidFo, MountainFo, RuinsFo, };
     }
 
     // Update is called once per frame

@@ -7,8 +7,10 @@ public class Transitions : MonoBehaviour
     public static Transitions Instance { get; private set; }
     [SerializeField] public itemManager itemmanager;
     [SerializeField] List<List<Planet.item>> allItems;
+    private resourceTracker resourceTracker;    
     void Awake()
     {
+        resourceTracker = Object.FindFirstObjectByType<resourceTracker>();
         if (Instance == null)
         {
             Instance = this;
@@ -37,8 +39,10 @@ public class Transitions : MonoBehaviour
         SceneManager.LoadScene("Camera Screen");
     }
 
-    public void ToMapAfterPicture(bool picTaken, int Score)
+    public void ToMapAfterPicture(int Score)
     {
+
+        resourceTracker.addCash(Score);
         //Move Scenes
         SceneManager.LoadScene("Map");
     }
