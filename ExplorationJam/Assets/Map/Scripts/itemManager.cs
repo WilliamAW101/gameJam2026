@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,15 +42,42 @@ public class itemManager : MonoBehaviour
             allItems.Add(planetScript.getItemList());
         }
 
+        if (allItems.Count < 3)
+        {
+            Debug.LogError("Need at least 3 item lists");
+            return;
+        }
+
         int highest, medium, lowest = 0;
         
-        highest = UnityEngine.Random.Range(0, allItems.Count);
-        medium = UnityEngine.Random.Range(0, allItems.Count);
+        highest = Random.Range(0, allItems.Count);
+        medium = Random.Range(0, allItems.Count);
         while (highest == medium)
-            medium = UnityEngine.Random.Range(0, allItems.Count);
-        lowest = UnityEngine.Random.Range(0, allItems.Count);
+            medium = Random.Range(0, allItems.Count);
+        lowest = Random.Range(0, allItems.Count);
         while (lowest == medium || lowest == highest)
-            lowest = UnityEngine.Random.Range(0, allItems.Count);
+            lowest = Random.Range(0, allItems.Count);
+
+        int highestIndex = Random.Range(0, allItems[highest].Count);
+        Planet.item item = allItems[highest][highestIndex];
+        item.itemCost = 100;
+        allItems[highest][highestIndex] = item;
+
+        int mediumIndex = Random.Range(0, allItems[medium].Count);
+        item = allItems[medium][mediumIndex];
+        item.itemCost = 75;
+        allItems[medium][mediumIndex] = item;
+
+        int lowestIndex = Random.Range(0, allItems[lowest].Count);
+        item = allItems[lowest][lowestIndex];
+        item.itemCost = 20;
+        allItems[lowest][lowestIndex] = item;
+
+        if (allItems[highest].Count == 0 || allItems[medium].Count == 0 || allItems[lowest].Count == 0)
+        {
+            Debug.LogError("Selected item list is empty");
+            return;
+        }
         
     }
 

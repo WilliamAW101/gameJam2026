@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SatelliteControl : MonoBehaviour
@@ -19,6 +18,14 @@ public class SatelliteControl : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             thrustForward(thrustForce);
+            if (resourceTracker.Instance != null)
+            {
+                resourceTracker.Instance.useFuel(3);
+            }
+            else
+            {
+                Debug.LogError("Resource Tracker instance is null!");
+            }
         }
         
         if (orbitplanet.getIsAPlanet() == true)
