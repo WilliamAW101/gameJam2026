@@ -18,7 +18,7 @@ public class Planet : MonoBehaviour
     item[] items = new List<item>().ToArray();
     private int itemCount;
     private string planetName;
-    private int planetID;
+    private int planetID = -1;
 
     enum PlanetNames
     {

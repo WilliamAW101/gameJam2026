@@ -8,6 +8,11 @@ public class Fuel : MonoBehaviour
 
     public Image FuelImage;
 
+    void Start()
+    {
+        setFuelAMT();
+    } 
+
 
     private void Update()
     {
@@ -15,6 +20,14 @@ public class Fuel : MonoBehaviour
     }
     public void UpdatedUI()
     {
-        FuelImage.fillAmount = CurrentTime / MaxTime;
+        FuelImage.fillAmount = resourceTracker.Instance.getFuelAmount() / MaxTime;
+        Debug.Log("Fuel Amount: " + resourceTracker.Instance.getFuelAmount());
     }
+
+    private void setFuelAMT()
+    {
+        MaxTime = resourceTracker.Instance.getMaxFuelAmount();
+        CurrentTime = resourceTracker.Instance.getFuelAmount();
+    }
+
 }
