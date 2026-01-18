@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class movementtrail : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class movementtrail : MonoBehaviour
     void Update()
     {
         transform.Translate(movementDirection * movementSpeed * Time.deltaTime);
+        StartCoroutine(GetRidOf(20f));
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private IEnumerator GetRidOf(float timer)
     {
+        yield return new WaitForSeconds(timer);
         Object.Destroy(meteor);
     }
 }
