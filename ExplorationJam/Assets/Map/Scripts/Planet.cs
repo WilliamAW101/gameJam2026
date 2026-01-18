@@ -25,7 +25,7 @@ public class Planet : MonoBehaviour
         Zephyrus, Aetheria, Lumora, Nereidia, Solara, TerranovaAstralis, Vortexia, CelestaraNebulonLunastra, XelZorp,
         Raydasin, Zarkova, Epicin,  Flarp, Jabberwock, SORN, EnteriussIppins0da , MarkII, MarkINiddlethrowBeezgwax, MarkV, 
         MarkXIVVMarkXVIVI, Deekaye, Alelelon,TOI84b, Wasp55A, Kelt302, Cintiq, Fibblthp, Najsakopajk, ZembrettaPuli, 
-        KuaKuaAhra, Poleria, NacthtwactBambruush,
+        KuaKuaAhra, Poleria, NacthtwactBambruush, Notmars, Gliese581g, HD209458b, Kepler22b, ProximaCentaur, Miku, 
     }
 
     void Awake()
