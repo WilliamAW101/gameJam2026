@@ -30,8 +30,14 @@ public class PlanetManager : MonoBehaviour
             placedPlanets = placedPlanets.Append(planet).ToArray();
             placedPlanets[i - 1].transform.SetParent(ManagerGameObject.transform, false);
             placedPlanets[i - 1].transform.localScale = planets[randomPlanetIndex].transform.localScale;
+            
         }    
         // Instantiate(planets[Random.Range(0, planets.Length)], transform.position, Quaternion.identity);
+    }
+
+    void Update()
+    {
+        
     }
 
     int randomXVal(int i)

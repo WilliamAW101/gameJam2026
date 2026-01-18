@@ -1,12 +1,8 @@
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class PlanetData : MonoBehaviour
 {
-    public int pictureMax = 3;
-
     public int score = 0;
-
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

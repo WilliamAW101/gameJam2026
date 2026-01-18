@@ -183,3 +183,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SatelliteControl
   thrustForce: 0.7
+  orbitPlanet: {fileID: 4477315426985698502}
+  transitions: {fileID: 0}
