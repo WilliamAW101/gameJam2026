@@ -15,6 +15,7 @@ public class showHighDemand : MonoBehaviour
             Debug.LogError("resourceTracker.Instance is NULL");
             return;
         }
+        Transitions.Instance.ToCameraTransition(0);
         Debug.Log("Highest Item ID: " + resourceTracker.Instance.getHighestItemID());
         Debug.Log("Medium Item ID: " + resourceTracker.Instance.getMediumItemID());
         Debug.Log("Lowest Item ID: " + resourceTracker.Instance.getLowestItemID());

@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 
 public class SatelliteControl : MonoBehaviour
@@ -62,6 +63,24 @@ public class SatelliteControl : MonoBehaviour
             else
             {
                 Debug.LogError("Resource Tracker instance is null!");
+            }
+        }
+        
+        if (orbitplanet.getIsAPlanet() == true)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log(orbitplanet.getCurrentPlanetID());
+                
+                if (Transitions.Instance != null)
+                {
+                    // Transitions.Instance.ToCameraTransition(orbitplanet.getCurrentPlanetID());
+                    Transitions.Instance.setPlanetIndex(orbitplanet.getCurrentPlanetID());
+                }
+                else
+                {
+                    Debug.LogError("Bloody instance is null");
+                }
             }
         }
     }
