@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlanetGravity : MonoBehaviour
 {
     [SerializeField] GameObject[] planets;
+
     
     void Start()
     {
