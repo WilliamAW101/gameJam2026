@@ -12,6 +12,9 @@ public class SatelliteControl : MonoBehaviour
     public AudioClip ThrusterSound;
     public AudioClip ThrusterRelease;
 
+    const int fuelUsage = 1;
+    const int Earth = -1;
+
     void Start()
     {
         satelliteThruster = GetComponent<Rigidbody>();
@@ -19,25 +22,25 @@ public class SatelliteControl : MonoBehaviour
 
     private void Update()
     {
+        // we want to make sure we know that planet we are at, -1 for if we are not at a planet (that is Earth)
         if (orbitplanet.getIsAPlanet() == true)
         {
-            if (Input.GetKey(KeyCode.Space))
+            Debug.Log(orbitplanet.getCurrentPlanetID());
+            if (Transitions.Instance != null)
             {
-                Debug.Log(orbitplanet.getCurrentPlanetID());
-
-                if (Transitions.Instance != null)
-                {
-                    Transitions.Instance.ToCameraTransition(orbitplanet.getCurrentPlanetID());
-                }
-                else
-                {
-                    Debug.LogError("Bloody instance is null");
-                }
+                Transitions.Instance.setPlanetIndex(orbitplanet.getCurrentPlanetID());
+            }
+            else
+            {
+                Debug.LogError("Bloody instance is null");
             }
         }
+        else 
+            Transitions.Instance.setPlanetIndex(Earth);
     }
     void FixedUpdate()
-    {
+    {   
+        // for controlling the satellite
         rotateSatellite();
 
         if (Input.GetKeyUp(KeyCode.W))
@@ -58,7 +61,7 @@ public class SatelliteControl : MonoBehaviour
             thrustForward(thrustForce);
             if (resourceTracker.Instance != null)
             {
-                resourceTracker.Instance.useFuel(1);
+                resourceTracker.Instance.useFuel(fuelUsage);
             }
             else
             {
@@ -66,6 +69,7 @@ public class SatelliteControl : MonoBehaviour
             }
         }
         
+        // basically if the satellite is at the planet, and the user presses space, then we can go to the planet scene
         if (orbitplanet.getIsAPlanet() == true)
         {
             if (Input.GetKey(KeyCode.Space))
@@ -74,8 +78,7 @@ public class SatelliteControl : MonoBehaviour
                 
                 if (Transitions.Instance != null)
                 {
-                    // Transitions.Instance.ToCameraTransition(orbitplanet.getCurrentPlanetID());
-                    Transitions.Instance.setPlanetIndex(orbitplanet.getCurrentPlanetID());
+                    Transitions.Instance.ToCameraTransition(orbitplanet.getCurrentPlanetID());
                 }
                 else
                 {
@@ -87,6 +90,7 @@ public class SatelliteControl : MonoBehaviour
     
     public void rotateSatellite()
     {
+        // following the cursor
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.WorldToScreenPoint(transform.position).z;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
@@ -98,6 +102,7 @@ public class SatelliteControl : MonoBehaviour
     
     public void thrustForward(float thrustForce)
     {
+        // method just adds an upward force to the satellite, since we have no gravity, we can do this
         satelliteThruster.AddForce(transform.up * thrustForce);
         
     }

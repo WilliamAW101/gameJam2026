@@ -21,8 +21,8 @@ public class PlanetManager : MonoBehaviour
         Satellite.transform.SetParent(ManagerGameObject.transform, false);
         Satellite.transform.localScale = SatellitePrefab.transform.localScale;
 
-        // Loop through all planets and instantiate them at random positions
-
+        // Loop through all planets and instantiate them at random positions, the algorithm below keeps track of the big planet and makes sure it does
+        // not spawn at some crappy location. I can explain it if need be but I am too lazy to type it out.
         for (int i = 1; i < planets.Length; i++)
         {
             Vector3 randomPosition;
@@ -49,15 +49,10 @@ public class PlanetManager : MonoBehaviour
             placedPlanets[i - 1].transform.localScale = planets[randomPlanetIndex].transform.localScale;
             
         }    
-        // Instantiate(planets[Random.Range(0, planets.Length)], transform.position, Quaternion.identity);
     }
 
-    void Update()
-    {
-        
-    }
-
-    int randomXVal(int i)
+    // helper function
+    private int randomXVal(int i)
     {
         return 5 + (10 * (i-1)) + Random.Range(-2,2);
     }

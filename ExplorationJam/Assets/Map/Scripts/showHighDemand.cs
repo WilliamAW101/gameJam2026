@@ -7,7 +7,7 @@ public class showHighDemand : MonoBehaviour
     [SerializeField] GameObject[] mediumDemandItems = new GameObject[5];
     [SerializeField] GameObject[] lowDemandItems = new GameObject[5];
     [SerializeField] Button showButton;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         if (resourceTracker.Instance == null)
@@ -15,44 +15,21 @@ public class showHighDemand : MonoBehaviour
             Debug.LogError("resourceTracker.Instance is NULL");
             return;
         }
-        Transitions.Instance.ToCameraTransition(0);
+
+        // we want to grab the top three items from resource tracker, this will tell us what to display at the top of the screen
         Debug.Log("Highest Item ID: " + resourceTracker.Instance.getHighestItemID());
         Debug.Log("Medium Item ID: " + resourceTracker.Instance.getMediumItemID());
         Debug.Log("Lowest Item ID: " + resourceTracker.Instance.getLowestItemID());
         for (int i = 0; i < highDemandItems.Length; i++)
         {
-            // if (i == resourceTracker.Instance.getHighestItemID())
-            // {
-            //     highDemandItems[i].SetActive(true);
-            // }
-            // else
-            // {
-            //     highDemandItems[i].SetActive(false);
-            // }
             highDemandItems[i].SetActive(false);
         }
         for (int i = 0; i < mediumDemandItems.Length; i++)
         {
-            // if (i == resourceTracker.Instance.getMediumItemID())
-            // {
-            //     mediumDemandItems[i].SetActive(true);
-            // }
-            // else
-            // {
-            //     mediumDemandItems[i].SetActive(false);
-            // }
             mediumDemandItems[i].SetActive(false);
         }
         for (int i = 0; i < lowDemandItems.Length; i++)
         {
-            // if (i == resourceTracker.Instance.getLowestItemID())
-            // {
-            //     lowDemandItems[i].SetActive(true);
-            // }
-            // else
-            // {
-            //     lowDemandItems[i].SetActive(false);
-            // }
             lowDemandItems[i].SetActive(false);
         }
 
@@ -68,6 +45,7 @@ public class showHighDemand : MonoBehaviour
 
     void buttonClicked()
     {
+        // just to dissapear and show crap
         if (highDemandItems[resourceTracker.Instance.getHighestItemID()].activeSelf)
         {
             highDemandItems[resourceTracker.Instance.getHighestItemID()].SetActive(false);
@@ -94,12 +72,5 @@ public class showHighDemand : MonoBehaviour
         {
             lowDemandItems[resourceTracker.Instance.getLowestItemID()].SetActive(true);
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -116,6 +116,7 @@ public class Planet : MonoBehaviour
         return planetName;
     }
 
+    // displaying the names on planets
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Satellite"))
