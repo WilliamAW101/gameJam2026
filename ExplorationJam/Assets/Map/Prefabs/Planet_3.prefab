@@ -518,8 +518,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.0347824
-  m_Center: {x: 0.012701671, y: 0, z: 0}
+  m_Radius: 1.2993999
+  m_Center: {x: 0.011481444, y: 0.029381275, z: 0}
 --- !u!54 &4536400745381452318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -584,8 +584,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.7908921
+  m_Center: {x: 0.01530695, y: 0.0073288283, z: 0}
 --- !u!1001 &4365489962242407217
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class SatelliteControl : MonoBehaviour
         // we want to make sure we know that planet we are at, -1 for if we are not at a planet (that is Earth)
         if (orbitplanet.getIsAPlanet() == true)
         {
-            Debug.Log(orbitplanet.getCurrentPlanetID());
+            // Debug.Log(orbitplanet.getCurrentPlanetID());
             if (Transitions.Instance != null)
             {
                 Transitions.Instance.setPlanetIndex(orbitplanet.getCurrentPlanetID());

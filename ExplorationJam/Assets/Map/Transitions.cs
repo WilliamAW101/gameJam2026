@@ -36,6 +36,7 @@ public class Transitions : MonoBehaviour
         }
 
         //Move Scenes
+        PlanetManager.Instance.hideEverything();
         SceneManager.LoadScene("Camera Screen");
 
         return planetItem;
@@ -46,12 +47,14 @@ public class Transitions : MonoBehaviour
 
         resourceTracker.addCash(Score);
         //Move Scenes
+        PlanetManager.Instance.showEverything();
         SceneManager.LoadScene("Map");
     }
 
     public void ToMapTransition()
     {
         //Move Scenes
+        PlanetManager.Instance.showEverything();
         SceneManager.LoadScene("Map");
     }
 

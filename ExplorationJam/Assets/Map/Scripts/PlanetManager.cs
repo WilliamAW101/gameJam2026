@@ -9,15 +9,38 @@ public class PlanetManager : MonoBehaviour
     [SerializeField] GameObject SatellitePrefab;
     private bool bigOnePlaced = false;
     private GameObject[] placedPlanets = new List<GameObject>().ToArray();
+    private GameObject Earth;
+    private GameObject Satellite;
+    private bool isInitialized = false;
 
     public static PlanetManager Instance { get; internal set; }
 
     void Awake()
     {
-        GameObject Earth =  Instantiate(planets[0],  new Vector3(0, 0, 0), Quaternion.identity);
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            initializePlanets();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+            
+    }
+
+    private void initializePlanets()
+    {
+        if (isInitialized)
+            return;
+
+        isInitialized = true;
+        Earth =  Instantiate(planets[0],  new Vector3(0, 0, 0), Quaternion.identity);
         Earth.transform.SetParent(ManagerGameObject.transform, false);
         Earth.transform.localScale = new Vector3(1, 1, 1f);
-        GameObject Satellite = Instantiate(SatellitePrefab, new Vector3(0, 3, 0), Quaternion.identity);
+        Satellite = Instantiate(SatellitePrefab, new Vector3(0, 3, 0), Quaternion.identity);
         Satellite.transform.SetParent(ManagerGameObject.transform, false);
         Satellite.transform.localScale = SatellitePrefab.transform.localScale;
 
@@ -47,8 +70,7 @@ public class PlanetManager : MonoBehaviour
             placedPlanets = placedPlanets.Append(planet).ToArray();
             placedPlanets[i - 1].transform.SetParent(ManagerGameObject.transform, false);
             placedPlanets[i - 1].transform.localScale = planets[randomPlanetIndex].transform.localScale;
-            
-        }    
+        }
     }
 
     // helper function
@@ -60,5 +82,29 @@ public class PlanetManager : MonoBehaviour
     public GameObject[] getPlanets()
     {
         return placedPlanets;
+    }
+
+    public void hideEverything()
+    {
+        for (int i = 0; i < placedPlanets.Length; i++)
+        {
+            placedPlanets[i].SetActive(false);
+        }
+        Earth.SetActive(false);
+        Satellite.SetActive(false);
+        Rigidbody rbSatellite = Satellite.GetComponent<Rigidbody>();
+        rbSatellite.constraints = RigidbodyConstraints.FreezeAll;
+    } 
+
+    public void showEverything()
+    {
+        for (int i = 0; i < placedPlanets.Length; i++)
+        {
+            placedPlanets[i].SetActive(true);
+        }
+        Earth.SetActive(true);
+        Satellite.SetActive(true);
+        Rigidbody rbSatellite = Satellite.GetComponent<Rigidbody>();
+        rbSatellite.constraints = RigidbodyConstraints.None;
     }
 }
