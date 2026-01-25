@@ -26,6 +26,7 @@ public class resourceTracker : MonoBehaviour
         }
     }
 
+    // keep crap privated, so we have getters and setters
     public int getFuelAmount()
     {
         return fuelAmount;

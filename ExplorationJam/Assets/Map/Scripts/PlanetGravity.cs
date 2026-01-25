@@ -15,7 +15,8 @@ public class PlanetGravity : MonoBehaviour
         applyGravity();
     }
     
-    public void applyGravity()
+    // go through each planet and apply a gravitational pull to them
+    private void applyGravity()
     {
         foreach (GameObject planet in planets)
         {

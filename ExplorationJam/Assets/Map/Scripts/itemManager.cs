@@ -46,6 +46,8 @@ public class itemManager : MonoBehaviour
         return totalItemCount;
     }
 
+    // the crap your reading below is how we decide RANDOMLY ;-;, which items out of all are going to be high, med, and low value. We want to save those indexes to 
+    // send off to the other scene
     private void grabAllItems()
     {
         int i = 0;

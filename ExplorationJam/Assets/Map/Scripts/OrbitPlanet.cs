@@ -61,7 +61,8 @@ public class OrbitPlanet : MonoBehaviour
             leavingPlanet();
         }
     }
-
+    
+    // ill probs tweak this again
     private void leavingPlanet()
     {
         isAtPlanet = false;
